@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.debug{
+    @apply border border-rose-600
+}
+.btnHover{
+    @apply hover:text-black transition-all duration-500 hover:bg-white
+}
+.blackhue{
+    @apply bg-[#e5e3e3]
+}
