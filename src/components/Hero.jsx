@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <div className="w-full h-[60vh] flex justify-between mt-6">
       <div className="lefthero w-[60%] flex justify-center flex-col gap-4">
-        <h1 className="raleway-bold leading-[3.6rem] text-[3rem] uppercase">
+        <h1 className="raleway-bold leading-[3.6rem] text-[3.6rem] uppercase">
           Manage Attendance Tracking : Effortless
           & Accurate.
         </h1>
