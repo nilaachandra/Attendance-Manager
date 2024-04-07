@@ -15,7 +15,12 @@ const Navbar = () => {
       </Link>
       {path.pathname === "/dashboard" ? (
         <SignOutButton>
-          <Button className="font-bold raleway-regular btnHover">Logout</Button>
+          <Link to='/login'>
+            {" "}
+            <Button className="font-bold raleway-regular btnHover">
+              Logout
+            </Button>
+          </Link>
         </SignOutButton>
       ) : (
         <Link to="login">
