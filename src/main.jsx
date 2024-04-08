@@ -9,6 +9,7 @@ import Signup from "./components/Authentication Pages/Signup.jsx";
 import Dashboard from "./components/Dashboard.jsx";
 import envconfig from "./envconfig.js";
 import { ClerkProvider } from "@clerk/clerk-react";
+import AddStudents from "./components/Dashboard/AddStudents.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,12 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <Dashboard />,
+        
       },
+      {
+        path: '/dashboard/add-students',
+        element: <AddStudents/>
+      }
     ],
   },
 ]);
