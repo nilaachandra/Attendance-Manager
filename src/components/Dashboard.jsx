@@ -34,8 +34,8 @@ useEffect(() => {
         throw error;
       }
       if (!data || data.length === 0) {
-        await supabase.from('users').insert([{ username: userUsername, email: userEmail}]).select();
-        console.log('user created in supabase');
+       const insertedData = await supabase.from('users').insert([{ username: userUsername, email: userEmail}]).select();
+        console.log('user created in supabase', insertedData);
       }
     } catch (error) {
       console.error('error checking/creating user in supabase', error.message);
