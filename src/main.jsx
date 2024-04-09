@@ -10,6 +10,8 @@ import Dashboard from "./components/Dashboard.jsx";
 import envconfig from "./envconfig.js";
 import { ClerkProvider } from "@clerk/clerk-react";
 import AddStudents from "./components/Dashboard/AddStudents.jsx";
+import AddTeachers from "./components/Dashboard/AddTeachers.jsx";
+import AddBacthes from "./components/Dashboard/AddBacthes.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,11 +33,18 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <Dashboard />,
-        
       },
       {
         path: '/dashboard/add-students',
         element: <AddStudents/>
+      },
+      {
+        path:'/dashboard/add-teachers',
+        element: <AddTeachers/>
+      },
+      {
+        path:'/dashboard/add-batches',
+      element:<AddBacthes/>
       }
     ],
   },
