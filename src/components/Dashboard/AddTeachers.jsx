@@ -1,42 +1,46 @@
 import { SignedIn, useSession } from "@clerk/clerk-react";
 import Button from "../reusable/Button";
 import Input from "../reusable/Input";
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux';
 import { addTeacher } from "../../store/teacherSlice";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
 const AddTeachers = () => {
-const dispatch = useDispatch()
-const {isLoaded, isSignedIn, session} = useSession()
-const [currentUser, setCurrentUser] = useState('')
+  const dispatch = useDispatch();
+  const { isLoaded, session } = useSession();
+  const [currentUser, setCurrentUser] = useState('');
 
-useEffect(() => {
-  if(isLoaded){
-    setCurrentUser(session.user.username.toLocaleString())
+  useEffect(() => {
+    if (isLoaded) {
+      setCurrentUser(session.user.username);
+    }
+  }, [isLoaded, session]);
+
+  const [teacherName, setTeacherName] = useState('');
+
+  const handleInputChange = (e) => {
+    setTeacherName(e.target.value); 
   }
-},[isLoaded])
 
-const [teacherData, setTeacherData]= useState({
-  created_by_user_id: currentUser,
-})
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const teacherData = { teachername: teacherName, created_by_user_name: currentUser }; 
+    dispatch(addTeacher(teacherData));
+    setTeacherName('')
+    
   }
-  const handleInputChange = () => {
 
-  }
   return (
     <SignedIn>
-      <div className="w-full min-h-[50vh] flex flex-col justify-center debug items-center gap-3">
-        <form onSubmit={handleSubmit}>
-          <Input type="text" name="name" placeholder="Add Teacher's Name" onChange={handleInputChange}/>
-          <Button type='submit'>Add Teacher</Button>
+      <div className="w-full min-h-[50vh] flex flex-col justify-center items-center gap-3">
+        <form onSubmit={handleSubmit} className="w-1/3 flex flex-col justify-center items-center debug gap-3">
+          <Input type="text" name="name" placeholder="Add Teacher's Name" value={teacherName} onChange={handleInputChange} className='text-center'/>
+          <Button type='submit' className='btnHover raleway-regular font-bold'>Add Teacher</Button>
         </form>
       </div>
     </SignedIn>
-  )
+  );
 }
 
-export default AddTeachers
+export default AddTeachers;
