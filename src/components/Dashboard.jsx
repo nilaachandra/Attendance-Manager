@@ -24,7 +24,6 @@ export default function Dashboard() {
 
   const userUsername = session.user.username.toLocaleString()
   const userEmail = session.user.emailAddresses.toLocaleString()
-  console.log(userUsername, userEmail)
 
 useEffect(() => {
   const checkUser = async () => {
@@ -51,7 +50,7 @@ useEffect(() => {
         <h1 className="text-[1.4rem] font-bold raleway-regular">Welcome to your Dashboard!</h1>
         <div className="lg:w-1/3 w-full flex flex-col gap-3">
           <IconBtn icon={<RiUserFill size={30} />} desc="User Profile" href='/'/>
-          <IconBtn icon={<RiUserAddFill size={30} />} desc="Add Teachers" />
+          <IconBtn icon={<RiUserAddFill size={30} />} desc="Add Teachers" href='add-teachers'/>
           <IconBtn icon={<RiTeamFill size={30} />} desc="Add Students" href='add-students' />
           <IconBtn icon={<RiBookFill size={30} />} desc="Add Batches" />
           <IconBtn icon={<RiHealthBookFill size={30} />} desc="Attendance" />

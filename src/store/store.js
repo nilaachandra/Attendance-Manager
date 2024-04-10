@@ -1,7 +1,8 @@
 import {configureStore} from '@reduxjs/toolkit'
+import teacherSlice from './teacherSlice';
 const store = configureStore({
     reducer:{
-        user: userSlice,
+        teachers: teacherSlice,
     }
 })
 export default store;

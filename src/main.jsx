@@ -12,6 +12,8 @@ import { ClerkProvider } from "@clerk/clerk-react";
 import AddStudents from "./components/Dashboard/AddStudents.jsx";
 import AddTeachers from "./components/Dashboard/AddTeachers.jsx";
 import AddBacthes from "./components/Dashboard/AddBacthes.jsx";
+import store from "./store/store.js";
+import { Provider } from 'react-redux'
 
 const router = createBrowserRouter([
   {
@@ -63,7 +65,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         },
       }}
     >
+      <Provider store={store}>
       <RouterProvider router={router} />
+      </Provider>
     </ClerkProvider>
   </React.StrictMode>
 );
