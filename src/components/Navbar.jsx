@@ -7,28 +7,30 @@ import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const path = useLocation();
+  const allowedPaths = ["/", "/login", "/signup"];
   return (
     <nav className="w-full flex justify-between items-center py-4 px-4 lg:px-[4vw] ">
       <Link to="/" className="logo flex items-center ">
         <img src={logo} alt="" width={50} height={50} />
         <h1 className="raleway-bold lg:text-[2rem] uppercase ">Attendometer</h1>
       </Link>
-      {path.pathname === "/dashboard" ? (
-        <SignOutButton>
-          <Link to='/login'>
-            {" "}
+      {allowedPaths.includes(path.pathname) ? (
+          <Link to="login">
             <Button className="font-bold raleway-regular btnHover">
-              Logout
+              Get Started
             </Button>
           </Link>
-        </SignOutButton>
-      ) : (
-        <Link to="login">
+      ) : (<SignOutButton>
+        <Link to='/login'>
+          {" "}
           <Button className="font-bold raleway-regular btnHover">
-            Get Started
+            Logout
           </Button>
         </Link>
-      )}
+      </SignOutButton>
+)}
+
+
     </nav>
   );
 };
