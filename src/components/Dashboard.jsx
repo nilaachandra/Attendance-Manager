@@ -7,42 +7,32 @@ import {
   RiBookFill,
   RiHealthBookFill,
 } from "@remixicon/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import supabase from "../Supabase/supabaseClient.js";
 
 export default function Dashboard() {
-  const { isLoaded, isSignedIn,session } = useSession();
-    
-  if (!isLoaded) {
-    // Add logic to handle loading state
-    return null;
-  }
-  if(!isSignedIn) {
-    // Add logic to handle not signed in state
-    return null;
-  }
+  const { isLoaded,session } = useSession();  
 
-  const userUsername = session.user.username.toLocaleString()
-  const userEmail = session.user.emailAddresses.toLocaleString()
-
-useEffect(() => {
-  const checkUser = async () => {
-    try {
-      const { data, error } = await supabase.from('users').select('*').eq('username', userUsername);
-      if (error) {
-        throw error;
+  useEffect(() => {
+    const checkUser = async () => {
+      try {
+        const { data: userData, error } = await supabase.from('users').select('*').eq('username', session.user.username);
+        if (error) {
+          throw error;
+        }
+        if (!userData || userData.length === 0) {
+          const insertedData = await supabase.from('users').insert([{ username: session.user.username, email: session.user.email }]).select();
+          console.log('user created in supabase', insertedData);
+        }
+      } catch (error) {
+        console.error('error checking/creating user in supabase', error.message);
       }
-      if (!data || data.length === 0) {
-       const insertedData = await supabase.from('users').insert([{ username: userUsername, email: userEmail}]).select();
-        console.log('user created in supabase', insertedData);
-      }
-    } catch (error) {
-      console.error('error checking/creating user in supabase', error.message);
+    };
+    if (isLoaded && session) {
+      checkUser();
     }
-  };
-  checkUser();
-}, [userUsername, userEmail]); // Include userUsername and userEmail in the dependency array
-
+  }, [isLoaded, session]);
+  
 
   return (
     <SignedIn>
