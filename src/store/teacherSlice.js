@@ -37,8 +37,8 @@ export const addTeacher = (teacherData) => async (dispatch) => {
     if (error) {
       throw error;
     }
-    dispatch(addTeacherSuccess(data[0])); // Pass the correct payload containing the new teacher data
-    console.log('Teacher added', data[0]);
+    dispatch(addTeacherSuccess(data)); // Pass the correct payload containing the new teacher data
+    console.log('Teacher added', data);
   } catch (error) {
     dispatch(addTeacherFailure(error.message));
     console.error('Teacher could not be added', error.message);

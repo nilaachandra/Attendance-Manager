@@ -34,7 +34,7 @@ const AddTeachers = () => {
   return (
     <SignedIn>
       <div className="w-full min-h-[50vh] flex flex-col justify-center items-center gap-3">
-        <form onSubmit={handleSubmit} className="w-1/3 flex flex-col justify-center items-center debug gap-3">
+        <form onSubmit={handleSubmit} className="w-1/3 flex flex-col justify-center items-center  gap-3">
           <Input type="text" name="name" placeholder="Add Teacher's Name" value={teacherName} onChange={handleInputChange} className='text-center'/>
           <Button type='submit' className='btnHover raleway-regular font-bold'>Add Teacher</Button>
         </form>

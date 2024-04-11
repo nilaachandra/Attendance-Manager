@@ -52,7 +52,7 @@ useEffect(() => {
           <IconBtn icon={<RiUserFill size={30} />} desc="User Profile" href='/'/>
           <IconBtn icon={<RiUserAddFill size={30} />} desc="Add Teachers" href='add-teachers'/>
           <IconBtn icon={<RiTeamFill size={30} />} desc="Add Students" href='add-students' />
-          <IconBtn icon={<RiBookFill size={30} />} desc="Add Batches" />
+          <IconBtn icon={<RiBookFill size={30} />} desc="Add Batches" href='add-batches'/>
           <IconBtn icon={<RiHealthBookFill size={30} />} desc="Attendance" />
         </div>
       </div>
