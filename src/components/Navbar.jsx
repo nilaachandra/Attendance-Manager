@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <nav className="w-full flex justify-between items-center py-4 px-4 lg:px-[4vw] ">
       <Link to="/" className="logo flex items-center ">
-        <img src={logo} alt="" width={50} height={50} />
+        <img src={logo} alt="" width={52} height={52} />
         <h1 className="raleway-bold lg:text-[2rem] uppercase ">Attendometer</h1>
       </Link>
       {allowedPaths.includes(path.pathname) ? (
