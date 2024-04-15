@@ -43,7 +43,7 @@ export default function Dashboard() {
           <IconBtn icon={<RiUserAddFill size={30} />} desc="Add Teachers" href='add-teachers'/>
           <IconBtn icon={<RiTeamFill size={30} />} desc="Add Students" href='add-students' />
           <IconBtn icon={<RiBookFill size={30} />} desc="Add Batches" href='add-batches'/>
-          <IconBtn icon={<RiHealthBookFill size={30} />} desc="Attendance" />
+          <IconBtn icon={<RiHealthBookFill size={30} />} desc="Attendance" href='attendance'/>
         </div>
       </div>
     </SignedIn>

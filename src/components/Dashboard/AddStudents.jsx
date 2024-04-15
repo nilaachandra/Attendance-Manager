@@ -102,7 +102,7 @@ const AddStudents = () => {
           <Button type="submit" className="btnHover raleway-regular font-bold">
             Add Students
           </Button>
-        </form>k
+        </form>
       </div>
     </SignedIn>
   );

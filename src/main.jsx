@@ -14,6 +14,7 @@ import AddTeachers from "./components/Dashboard/AddTeachers.jsx";
 import AddBacthes from "./components/Dashboard/AddBacthes.jsx";
 import store from "./store/store.js";
 import { Provider } from 'react-redux'
+import Attendance from "./components/Dashboard/Attendance.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path:'/dashboard/add-batches',
       element:<AddBacthes/>
+      },
+      {
+        path:'/dashboard/attendance',
+        element: <Attendance/>
       }
     ],
   },
