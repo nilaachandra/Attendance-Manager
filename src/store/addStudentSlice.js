@@ -15,7 +15,7 @@ const addStudentSlice = createSlice({
             state.loading = true;
             state.error = null;
         },
-        addStudentSuccess(state) {
+        addStudentSuccess(state, action) {
             state.loading = false;
             state.error = null;
             state.students.push(action.payload)
@@ -33,7 +33,7 @@ export const {addStudentStart, addStudentSuccess, addStudentFailure } = addStude
 
 export const addStudents = (studentData) => async (dispatch) => {
     try {
-        dispatch(addStudentSlice())
+        dispatch(addStudentStart())
         const {data,error} = await supabase.from('students').insert(studentData).select();
         if(error){
             throw error
