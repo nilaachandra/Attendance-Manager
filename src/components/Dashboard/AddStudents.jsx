@@ -6,7 +6,6 @@ import supabase from "../../Supabase/supabaseClient";
 import { useDispatch } from "react-redux";
 import { addStudents } from "../../store/addStudentSlice";
 
-
 const AddStudents = () => {
   const dispatch = useDispatch()
   const [batches, setBatches] = useState([]);

@@ -15,6 +15,7 @@ import AddBacthes from "./components/Dashboard/AddBacthes.jsx";
 import store from "./store/store.js";
 import { Provider } from 'react-redux'
 import Attendance from "./components/Dashboard/Attendance.jsx";
+import ShowStudents from './components/Dashboard/ShowStudents.jsx'
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       {
         path:'/dashboard/attendance',
         element: <Attendance/>
+      },
+      {
+        path:'/dashboard/students/fetch-students',
+        element: <ShowStudents/>
       }
     ],
   },
