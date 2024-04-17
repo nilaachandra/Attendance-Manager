@@ -15,7 +15,10 @@ import AddBacthes from "./components/Dashboard/AddBacthes.jsx";
 import store from "./store/store.js";
 import { Provider } from 'react-redux'
 import Attendance from "./components/Dashboard/Attendance.jsx";
-import ShowStudents from './components/Dashboard/ShowStudents.jsx'
+import Students from "./components/Dashboard/Students.jsx";
+import Batches from "./components/Dashboard/Batches.jsx";
+import Teachers from "./components/Dashboard/Teachers.jsx";
+import StudentsList from "./components/Dashboard/StudentList.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,15 +42,28 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: '/dashboard/add-students',
+        path:'/dashboard/students',
+        element: <Students/>
+      },
+      {
+        path:'/dashboard/batches',
+        element: <Batches/>
+      },
+      {
+        path:'/dashboard/teachers',
+        element: <Teachers/>
+      },
+
+      {
+        path: '/dashboard/students/add-students',
         element: <AddStudents/>
       },
       {
-        path:'/dashboard/add-teachers',
+        path:'/dashboard/teachers/add-teachers',
         element: <AddTeachers/>
       },
       {
-        path:'/dashboard/add-batches',
+        path:'/dashboard/batches/add-batches',
       element:<AddBacthes/>
       },
       {
@@ -56,7 +72,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/dashboard/students/fetch-students',
-        element: <ShowStudents/>
+        element: <StudentsList/>
       }
     ],
   },
