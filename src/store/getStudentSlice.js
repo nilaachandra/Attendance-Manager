@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import supabase from '../Supabase/supabaseClient'
+import supabase from '../Supabase/supabaseClient';
+
 // Async thunk to fetch students from Supabase
 const fetchStudents = createAsyncThunk('students/fetchStudents', async () => {
   try {
@@ -20,9 +21,12 @@ const getStudentSlice = createSlice({
     students: [],
     status: 'idle', // or 'loading', 'succeeded', 'failed'
     error: null,
+    filter: null,
   },
   reducers: {
-    // You can add additional reducers here if needed
+    setFilter: (state, action) => {
+      state.filter = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -39,6 +43,8 @@ const getStudentSlice = createSlice({
       });
   },
 });
+
+export const { setFilter } = getStudentSlice.actions;
 
 export default getStudentSlice.reducer;
 
