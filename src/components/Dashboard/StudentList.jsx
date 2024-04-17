@@ -69,7 +69,7 @@ const StudentsList = () => {
               value={searchQuery}
               onChange={handleSearchChange}
               placeholder="Search..."
-              className="w-[30%]"/>
+              className="w-[30%] text-center"/>
               <RiSearch2Line size={30}/>
             </div>
             <table className="w-full">
