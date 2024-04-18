@@ -1,10 +1,10 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import supabase from '../Supabase/supabaseClient';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import supabase from "../Supabase/supabaseClient";
 
 // Async thunk to fetch students from Supabase
-const fetchStudents = createAsyncThunk('students/fetchStudents', async () => {
+const fetchStudents = createAsyncThunk("students/fetchStudents", async () => {
   try {
-    const { data, error } = await supabase.from('students').select('*');
+    const { data, error } = await supabase.from("students").select("*");
     if (error) {
       throw new Error(error.message);
     }
@@ -16,10 +16,10 @@ const fetchStudents = createAsyncThunk('students/fetchStudents', async () => {
 
 // Redux slice for students
 const getStudentSlice = createSlice({
-  name: 'students',
+  name: "students",
   initialState: {
     students: [],
-    status: 'idle', // or 'loading', 'succeeded', 'failed'
+    status: "idle", // or 'loading', 'succeeded', 'failed'
     error: null,
     filter: null,
   },
@@ -31,14 +31,14 @@ const getStudentSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchStudents.pending, (state) => {
-        state.status = 'loading';
+        state.status = "loading";
       })
       .addCase(fetchStudents.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.status = "succeeded";
         state.students = action.payload;
       })
       .addCase(fetchStudents.rejected, (state, action) => {
-        state.status = 'failed';
+        state.status = "failed";
         state.error = action.error.message;
       });
   },
