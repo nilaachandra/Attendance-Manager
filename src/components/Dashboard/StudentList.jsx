@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStudents } from "../../store/getStudentSlice";
 import { SignedIn, useSession } from "@clerk/clerk-react";
-import { RiDeleteBin2Fill, RiEdit2Fill, RiSearch2Line } from "@remixicon/react";
+import { RiArrowLeftSFill, RiArrowRightSFill, RiDeleteBin2Fill, RiEdit2Fill, RiSearch2Line } from "@remixicon/react";
 import ReactPaginate from "react-paginate";
 import Input from "../reusable/Input";
 
@@ -72,7 +72,7 @@ const StudentsList = () => {
               className="w-[30%] text-center"/>
               <RiSearch2Line size={30}/>
             </div>
-            <table className="w-full">
+            <table className="w-full font-bold">
             <thead>
                 <tr className="text-center">
                   <th>ID</th>
@@ -91,7 +91,7 @@ const StudentsList = () => {
                     <td className="text-center">
                       {student.batchname.toUpperCase()}
                     </td>
-                    <td className="text-center flex justify-center gap-4">
+                    <td className="text-center flex justify-center gap-6">
                       <RiEdit2Fill size={24} />
                       <RiDeleteBin2Fill size={24} />
                     </td>
@@ -99,14 +99,14 @@ const StudentsList = () => {
                 ))}
               </tbody>            </table>
             <ReactPaginate
-              previousLabel={"Previous"}
-              nextLabel={"Next"}
+              previousLabel={<RiArrowLeftSFill size={30}/>}
+              nextLabel={<RiArrowRightSFill size={30}/>}
               breakLabel={"..."}
               pageCount={pageCount}
               marginPagesDisplayed={2}
               pageRangeDisplayed={5}
               onPageChange={handlePageChange}
-              containerClassName={"flex justify-center items-center gap-4"}
+              containerClassName={"flex justify-center items-center gap-4 font-bold"}
               activeClassName={"bg-black text-white font-bold w-10 h-10 flex items-center justify-center rounded-full"}
             />
           </div>
