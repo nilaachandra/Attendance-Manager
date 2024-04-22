@@ -63,3 +63,4 @@ const studentUpdateSlice = createSlice({
           });
     }
 })
+export default studentUpdateSlice.reducer;

@@ -1,10 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import supabase from "../Supabase/supabaseClient";
+import { useSelector } from "react-redux";
 
 // Async thunk to fetch students from Supabase
-const fetchStudents = createAsyncThunk("students/fetchStudents", async () => {
+const fetchStudents = createAsyncThunk("students/fetchStudents", async (_, { getState }) => {
   try {
-    const { data, error } = await supabase.from("students").select("*");
+    const username = useSelector((state) => state.username.username); // Get the current username from the store
+    const { data, error } = await supabase
+      .from("students")
+      .select("*")
+      .eq("created_by_user_name", username); // Filter students by the current username
     if (error) {
       throw new Error(error.message);
     }
